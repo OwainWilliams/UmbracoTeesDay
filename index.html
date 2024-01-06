@@ -98,11 +98,24 @@
 <script>
 function updateTimer() {
   // Fetch the JSON file containing the array of dates
-  fetch('datesFolder/dates.json')
+  fetch('path/to/dates.json')
     .then(response => response.json())
     .then(data => {
       // Find the closest date in the array
       var closestDate = findClosestDate(data);
+
+      // Check if the closest date is today
+      var today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      var closestDateTime = new Date(closestDate);
+      closestDateTime.setHours(0, 0, 0, 0);
+
+      if (closestDateTime.getTime() === today.getTime()) {
+        // It's today
+        document.getElementById("timer").innerHTML = "#UmbracoTees day is today!";
+        return;
+      }
 
       // Calculate the countdown for the closest date
       var future = Date.parse(closestDate);
@@ -153,6 +166,7 @@ function findClosestDate(datesArray) {
 
 setInterval(updateTimer, 1000);
 </script>
+
 
 </body>
 </html>
