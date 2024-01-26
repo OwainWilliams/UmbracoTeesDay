@@ -89,5 +89,9 @@ function generateICalLink(title, date) {
 
   return 'data:text/calendar;charset=utf-8,' + encodeURIComponent(iCalData);
 }
-
+// Set up the click event for the button
+document.getElementById('icalButton').addEventListener('click', function () {
+  // Open the iCal link in a new tab or window
+  window.open(this.getAttribute('href'), '_blank');
+});
 setInterval(updateTimer, 1000);
