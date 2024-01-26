@@ -52,6 +52,10 @@ function updateTimer() {
         '<div>' + m + '<span>minutes</span></div>' +
         '<div>' + s + '<span>seconds</span></div>' +
          '<p><div><span>on </span>' + formattedFutureDate +'</div></p>';
+
+        // Update the iCal link with the closest date
+      var iCalLink = generateICalLink("UmbracoTees day", closestDateTime);
+      document.getElementById("icalButton").setAttribute("href", iCalLink);
     })
     .catch(error => {
       console.error('Error fetching dates:', error);
@@ -70,6 +74,20 @@ function findClosestDate(datesArray) {
   }
 
   return closestDate;
+}
+
+function generateICalLink(title, date) {
+  var formattedDate = date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+  var iCalData = 'BEGIN:VCALENDAR\n' +
+                 'VERSION:2.0\n' +
+                 'BEGIN:VEVENT\n' +
+                 'SUMMARY:' + title + '\n' +
+                 'DTSTART:' + formattedDate + '\n' +
+                 'DTEND:' + formattedDate + '\n' +
+                 'END:VEVENT\n' +
+                 'END:VCALENDAR\n';
+
+  return 'data:text/calendar;charset=utf-8,' + encodeURIComponent(iCalData);
 }
 
 setInterval(updateTimer, 1000);
