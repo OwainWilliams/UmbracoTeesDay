@@ -154,12 +154,17 @@ function updateTimer() {
       var m = mins - hours * 60;
       var s = secs - mins * 60;
 
+      var futureDate = new Date(future);
+      var options = { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' };
+      var formattedFutureDate = futureDate.toLocaleDateString('en-US', options);
+
+
       document.getElementById("timer").innerHTML =
         '<div>' + d + '<span>days</span></div>' +
         '<div>' + h + '<span>hours</span></div>' +
         '<div>' + m + '<span>minutes</span></div>' +
         '<div>' + s + '<span>seconds</span></div>' +
-         '<div><span>on </span>' + future +'</div>';
+         '<div><span>on </span>' + formattedFutureDate +'</div>';
     })
     .catch(error => {
       console.error('Error fetching dates:', error);
