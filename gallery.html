@@ -73,6 +73,11 @@
     width: 255px;
     height: 340px;
     object-fit: cover; /* To ensure the image covers the specified dimensions */
+
+    .gallery-item-landscape img {
+    width: 640px;
+    height: 480px;
+    object-fit: cover; /* To ensure the image covers the specified dimensions */
   }
   </style>
   <title>#UmbracoTees Countdown Timer</title>
@@ -232,7 +237,7 @@
           <img src="/umbracoTeesGallery/23Feb2024/Michael.jpg" class="img-fluid" alt="Michael in his Codegarden Tshirt">
         </div>
         <div class="col gallery-item">
-          <img src="/umbracoTeesGallery/23Feb2024/DevWeekTeam.jpg" class="img-fluid" alt="DevWeek Team">
+          <img src="/umbracoTeesGallery/23Feb2024/DevWeekTeam.jpeg" class="img-fluid" alt="DevWeek Team">
         </div>
         <div class="col gallery-item">
           <img src="/umbracoTeesGallery/23Feb2024/RichardTSocks.jpg" class="img-fluid" alt="Richard's socks">
@@ -242,18 +247,10 @@
 
       <div class="row row-cols-1 row-cols-md-4 g-4 mb-4">
        
-        <div class="col gallery-item">
+        <div class="col gallery-item-landscape">
           <img src="/umbracoTeesGallery/23Feb2024/EmmaB.png" class="img-fluid" alt="Emma and the team">
         </div>
-        <div class="col gallery-item">
-          <img src="https://placehold.co/400x400?text=umbracoTees" class="img-fluid" alt="Placeholder Image">
-        </div>
-        <div class="col gallery-item">
-          <img src="https://placehold.co/400x400?text=umbracoTees" class="img-fluid" alt="Placeholder Image">
-        </div>
-        <div class="col gallery-item">
-          <img src="https://placehold.co/400x400?text=umbracoTees" class="img-fluid" alt="Placeholder Image">
-        </div>
+        
         
       </div>
 </div>
