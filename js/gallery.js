@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const gallery = document.querySelector(".gallery");
+  const folderNameElement = document.querySelector(".folder-name"); // Get the folder name element
 
   // Define image URLs for each folder (replace with actual image URLs)
   const folderImages = {
