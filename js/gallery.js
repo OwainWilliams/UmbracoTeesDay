@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Define image URLs for each folder (replace with actual image URLs)
   const folderImages = {
-      "30Aug2024": [
+      "30 August 2024": [
           "umbracoTeesGallery/30Aug2024/image(1).jpg",
           "umbracoTeesGallery/30Aug2024/image(2).jpg",
           "umbracoTeesGallery/30Aug2024/image(3).jpg",
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
           "umbracoTeesGallery/30Aug2024/image(35).jpg"
           // Add more images as needed
       ],
-       "30May2024": [
+       "30 May 2024": [
            "umbracoTeesGallery/30May2024/image(1).jpg",
            "umbracoTeesGallery/30May2024/image(1).jpeg",
            "umbracoTeesGallery/30May2024/image(2).jpeg",
@@ -74,17 +74,14 @@ document.addEventListener("DOMContentLoaded", function () {
            "umbracoTeesGallery/30May2024/image(25).jpg",
            "umbracoTeesGallery/30May2024/image(26).jpg",
            "umbracoTeesGallery/30May2024/image(27).jpg"
-
-
-           // Add more images as needed
-       ],
+       ]
       // "30May2024": [
       //     "umbracoTeesGallery/30May2024/image5.jpg",
       //     "umbracoTeesGallery/30May2024/image6.jpg",
       //     // Add more images as needed
       // ],
       // Add more folders if necessary
-  };
+    };
 
   // Loop through each folder and its images
   for (const folder in folderImages) {
@@ -98,5 +95,4 @@ document.addEventListener("DOMContentLoaded", function () {
         imgElement.src = image;
         gallery.appendChild(imgElement);
     });
-}
-});
+}});
