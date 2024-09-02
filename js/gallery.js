@@ -86,13 +86,17 @@ document.addEventListener("DOMContentLoaded", function () {
   // Loop through each folder and its images
   for (const folder in folderImages) {
     const images = folderImages[folder];
-
-    // Display folder name
-    folderNameElement.textContent = `Folder: ${folder}`; // Modify this as needed
-
+  
+    // Create and display folder name element
+    const folderNameElement = document.createElement("h2");
+    folderNameElement.textContent = `Folder: ${folder}`;
+    gallery.appendChild(folderNameElement);
+  
+    // Append images to the gallery
     images.forEach((image) => {
-        const imgElement = document.createElement("img");
-        imgElement.src = image;
-        gallery.appendChild(imgElement);
+      const imgElement = document.createElement("img");
+      imgElement.src = image;
+      gallery.appendChild(imgElement);
     });
-}});
+  }
+});
