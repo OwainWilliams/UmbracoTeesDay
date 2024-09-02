@@ -85,27 +85,26 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
   // Loop through each folder and its images
-  for (const folder in folderImages) {
-    const images = folderImages[folder];
+ // Loop through each folder and its images
+ for (const folder in folderImages) {
+	const images = folderImages[folder];
 
-    // Create a container for each folder
-    const folderContainer = document.createElement("div");
-    folderContainer.classList.add("folder-container");
+	// Create and display folder name element
+	const folderNameElement = document.createElement("h2");
+	folderNameElement.textContent = `Folder: ${folder}`;
+	gallery.appendChild(folderNameElement);
 
-    // Display folder name (h2)
-    const folderNameElement = document.createElement("h2");
-    folderNameElement.textContent = `Folder: ${folder}`;
-    folderContainer.appendChild(folderNameElement);
+	// Create a container for the images
+	const imageContainer = document.createElement("div");
+	imageContainer.classList.add("image-container");
+	gallery.appendChild(imageContainer);
 
-    // Display images
-    images.forEach((image) => {
-        const imgElement = document.createElement("img");
-        imgElement.src = image;
-        folderContainer.appendChild(imgElement);
-    });
-
-    // Append the folder container to the gallery
-    gallery.appendChild(folderContainer);
+	// Append images to the image container
+	images.forEach((image) => {
+		const imgElement = document.createElement("img");
+		imgElement.src = image;
+		imageContainer.appendChild(imgElement);
+	});
 }
 
 });
