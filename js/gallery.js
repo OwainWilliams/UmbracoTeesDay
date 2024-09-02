@@ -46,9 +46,10 @@ document.addEventListener("DOMContentLoaded", function () {
            "umbracoTeesGallery/30May2024/image(1).jpg",
            "umbracoTeesGallery/30May2024/image(1).jpeg",
            "umbracoTeesGallery/30May2024/image(2).jpeg",
-           "umbracoTeesGallery/30May2024/image(2).jpg",
+           "umbracoTeesGallery/30May2024/image(2).png",
            "umbracoTeesGallery/30May2024/image(3).jpeg",
            "umbracoTeesGallery/30May2024/image(3).jpg",
+           "umbracoTeesGallery/30May2024/image(3).png",
            "umbracoTeesGallery/30May2024/image(4).jpg",
            "umbracoTeesGallery/30May2024/image(4).png",
            "umbracoTeesGallery/30May2024/image(5).jpg",
@@ -86,22 +87,25 @@ document.addEventListener("DOMContentLoaded", function () {
   // Loop through each folder and its images
   for (const folder in folderImages) {
     const images = folderImages[folder];
-  
-    // Create and display folder name element
+
+    // Create a container for each folder
+    const folderContainer = document.createElement("div");
+    folderContainer.classList.add("folder-container");
+
+    // Display folder name (h2)
     const folderNameElement = document.createElement("h2");
     folderNameElement.textContent = `Folder: ${folder}`;
-    gallery.appendChild(folderNameElement);
-  
-    // Create a container for the images
-    const imageContainer = document.createElement("div");
-    imageContainer.classList.add("image-container");
-    gallery.appendChild(imageContainer);
-  
-    // Append images to the image container
+    folderContainer.appendChild(folderNameElement);
+
+    // Display images
     images.forEach((image) => {
-      const imgElement = document.createElement("img");
-      imgElement.src = image;
-      imageContainer.appendChild(imgElement);
+        const imgElement = document.createElement("img");
+        imgElement.src = image;
+        folderContainer.appendChild(imgElement);
     });
-  }
+
+    // Append the folder container to the gallery
+    gallery.appendChild(folderContainer);
+}
+
 });
