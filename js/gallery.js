@@ -86,8 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Loop through each folder and its images
  // Loop through each folder and its images
- // Loop through each folder and its images
-for (const folder in folderImages) {
+ for (const folder in folderImages) {
 	const images = folderImages[folder];
 
 	// Create and display folder name element
@@ -104,35 +103,8 @@ for (const folder in folderImages) {
 	images.forEach((image) => {
 		const imgElement = document.createElement("img");
 		imgElement.src = image;
-		imgElement.alt = `Image from ${folder}`;
 		imageContainer.appendChild(imgElement);
-
-		// Add click event to open lightbox
-		imgElement.addEventListener("click", function () {
-			openLightbox(image);
-		});
 	});
 }
-
-// Lightbox functionality
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const closeBtn = document.querySelector(".close");
-
-function openLightbox(src) {
-	lightbox.style.display = "block";
-	lightboxImg.src = src;
-}
-
-closeBtn.addEventListener("click", function () {
-	lightbox.style.display = "none";
-});
-
-// Close lightbox when clicking outside the image
-lightbox.addEventListener("click", function (e) {
-	if (e.target === lightbox) {
-		lightbox.style.display = "none";
-	}
-});
 
 });
