@@ -92,11 +92,16 @@ document.addEventListener("DOMContentLoaded", function () {
     folderNameElement.textContent = `Folder: ${folder}`;
     gallery.appendChild(folderNameElement);
   
-    // Append images to the gallery
+    // Create a container for the images
+    const imageContainer = document.createElement("div");
+    imageContainer.classList.add("image-container");
+    gallery.appendChild(imageContainer);
+  
+    // Append images to the image container
     images.forEach((image) => {
       const imgElement = document.createElement("img");
       imgElement.src = image;
-      gallery.appendChild(imgElement);
+      imageContainer.appendChild(imgElement);
     });
   }
 });
