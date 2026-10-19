@@ -75,7 +75,7 @@ a:hover { color: #8fdcff; }
 /* ---------- Hero ---------- */
 main { flex: 1; }
 
-.hero { padding: 72px 0 40px; text-align: center; }
+.hero { padding: 44px 0 16px; text-align: center; }
 .eyebrow {
   display: inline-block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--accent); background: rgba(72, 200, 255, 0.1);
@@ -91,7 +91,7 @@ main { flex: 1; }
 /* ---------- Countdown ---------- */
 .countdown {
   display: flex; justify-content: center; gap: clamp(8px, 2vw, 18px);
-  margin: 40px 0 12px; flex-wrap: wrap;
+  margin: 28px 0 12px; flex-wrap: wrap;
 }
 .unit {
   background: linear-gradient(180deg, var(--surface), var(--bg-2));
@@ -119,6 +119,19 @@ main { flex: 1; }
 .today-banner small { display: block; font-size: 1rem; font-weight: 500; color: var(--muted); margin-top: 6px; letter-spacing: 0; }
 
 .none { color: var(--muted); font-size: 1.3rem; margin: 40px 0 8px; }
+
+.follow { margin: 20px 0 0; color: var(--muted); font-size: 0.95rem; }
+.follow a { color: var(--text); text-decoration-color: var(--border); }
+.follow a:hover { color: var(--accent); }
+
+.scroll-cue {
+  display: inline-flex; flex-direction: column; align-items: center; gap: 2px;
+  margin-top: 28px; color: var(--accent); text-decoration: none;
+  font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em;
+}
+.scroll-cue svg { width: 28px; height: 28px; animation: bob 1.6s ease-in-out infinite; }
+.scroll-cue:hover { color: #8fdcff; }
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
 
 /* ---------- Buttons ---------- */
 .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 28px 0 0; }
@@ -155,8 +168,23 @@ main { flex: 1; }
 .copy-row .btn { padding: 9px 16px; }
 
 /* ---------- Suggest form ---------- */
-.suggest { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 42rem; }
-.suggest label { display: grid; gap: 6px; font-weight: 600; font-size: 0.9rem; }
+.suggest-panel {
+  display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px; align-items: center;
+  padding: clamp(24px, 4vw, 48px);
+  background:
+    radial-gradient(500px 300px at 100% 0%, rgba(72, 200, 255, 0.18), transparent 70%),
+    linear-gradient(135deg, var(--surface), var(--bg-2));
+  border: 1px solid var(--accent); border-radius: 24px;
+  box-shadow: 0 0 0 4px rgba(72, 200, 255, 0.08), 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+.suggest-intro h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); line-height: 1.1; letter-spacing: -0.03em; margin: 16px 0 12px; }
+.suggest-intro p { color: #d3e0f2; margin: 0 0 12px; }
+.suggest-intro .note { color: var(--muted); font-size: 0.9rem; }
+.btn.big { padding: 14px 28px; font-size: 1.05rem; }
+@media (max-width: 800px) { .suggest-panel { grid-template-columns: 1fr; gap: 24px; } }
+
+.suggest { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.suggest label { display: grid; gap: 6px; font-weight: 600; font-size: 0.9rem; min-width: 0; align-content: start; }
 .suggest label small { color: var(--muted); font-weight: 400; }
 .suggest .wide { grid-column: 1 / -1; }
 .suggest input, .suggest textarea {
@@ -241,10 +269,10 @@ main { flex: 1; }
 
 @media (max-width: 560px) {
   .site-header .wrap { flex-direction: column; align-items: flex-start; padding-top: 10px; padding-bottom: 10px; gap: 4px; }
-  .hero { padding-top: 48px; }
+  .hero { padding-top: 32px; }
   .lightbox .prev, .lightbox .next { top: auto; bottom: 16px; transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; scroll-behavior: auto !important; }
+  * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }

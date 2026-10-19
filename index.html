@@ -63,6 +63,38 @@
 
         <div id="timer" aria-live="off"><p class="none">Loading&hellip;</p></div>
         <div class="actions" id="next-actions"></div>
+        <p class="follow">Follow along: <a href="#subscribe">Calendar</a> &middot; <a href="#subscribe">RSS feed</a> &middot; <a href="#subscribe">Umbraco backoffice package</a></p>
+        <a class="scroll-cue" href="#suggest" aria-label="Scroll down for more">
+          <span>Suggest a date &amp; ways to follow</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="suggest">
+      <div class="wrap">
+        <div class="suggest-panel">
+          <div class="suggest-intro">
+            <span class="eyebrow">Your turn</span>
+            <h2>Suggest the next #UmbracoTees day</h2>
+            <p>#UmbracoTees day belongs to the community, so help pick the date. Suggest a day, say why it&rsquo;s a good one, and if it&rsquo;s accepted it goes straight onto this site, the calendar and the RSS feed.</p>
+            <p class="note">Suggestions open as a public GitHub issue, so you&rsquo;ll need a free GitHub account.</p>
+          </div>
+          <form class="suggest" id="suggest-form" action="https://github.com/OwainWilliams/UmbracoTeesDay/issues/new" method="get" target="_blank" rel="noopener">
+            <input type="hidden" name="template" value="date-suggestion.yml">
+            <input type="hidden" name="title" id="suggest-title" value="">
+            <label>Date
+              <input type="date" name="date" id="suggest-date" required>
+            </label>
+            <label><span>Your name or handle <small>(optional)</small></span>
+              <input type="text" name="who" placeholder="@owaincodes" autocomplete="off">
+            </label>
+            <label class="wide"><span>Why are you suggesting this date? <small>(optional)</small></span>
+              <textarea name="why" rows="3" placeholder="e.g. Umbraco anniversary"></textarea>
+            </label>
+            <div class="wide"><button class="btn primary big" type="submit">Suggest this date</button></div>
+          </form>
+        </div>
       </div>
     </section>
 
@@ -106,26 +138,6 @@
             <p><a href="https://marketplace.umbraco.com/package/our.umbraco.umbracoteesdaycountdown">Get the package</a> &middot; <a href="https://github.com/loranallensmith/UmbracoTeesDayCounter">GitHub repo</a></p>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="section" id="suggest">
-      <div class="wrap">
-        <h2>Suggest a date</h2>
-        <p class="sub">Got a date in mind for the next #UmbracoTees day? Send it over. It opens as a public GitHub issue, so you&rsquo;ll need a free GitHub account.</p>
-        <form class="card suggest" id="suggest-form" action="https://github.com/OwainWilliams/UmbracoTeesDay/issues/new" method="get" target="_blank" rel="noopener">
-          <input type="hidden" name="template" value="date-suggestion.yml">
-          <input type="hidden" name="title" id="suggest-title" value="">
-          <label>Date
-            <input type="date" name="date" id="suggest-date" required>
-          </label>
-          <label>Your name or handle <small>(optional)</small>
-            <input type="text" name="who" placeholder="@owaincodes" autocomplete="off">
-          </label>
-          <label class="wide">Why are you suggesting this date? <small>(optional)</small>
-            <textarea name="why" rows="3" placeholder="e.g. Umbraco anniversary"></textarea>
-          </label>
-          <div class="wide"><button class="btn primary" type="submit">Suggest this date on GitHub</button></div>
-        </form>
       </div>
     </section>
   </main>

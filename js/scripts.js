@@ -44,6 +44,7 @@
     actions.innerHTML = '';
     actions.appendChild(el('a', { class: 'btn primary', href: googleUrl(isoDate), target: '_blank', rel: 'noopener' }, calIcon + 'Add to Google Calendar'));
     actions.appendChild(el('a', { class: 'btn', href: 'calendar/' + isoDate + '.ics', download: 'umbracotees-' + isoDate + '.ics' }, calIcon + 'Download .ics'));
+    actions.appendChild(el('a', { class: 'btn', href: '#suggest' }, 'Suggest a date'));
   }
 
   function renderUpcoming(days) {
