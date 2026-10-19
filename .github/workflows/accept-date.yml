@@ -1,0 +1,93 @@
+name: Accept suggested date
+
+# Add the "accepted" label to a date-suggestion issue to publish that date.
+# Only people with triage/write access can label issues, so this is maintainer-gated.
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: dates-file
+  cancel-in-progress: false
+
+jobs:
+  accept:
+    if: github.event.label.name == 'accepted' && contains(github.event.issue.labels.*.name, 'date-suggestion')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # The issue body is untrusted input: it is only handled in JS and validated before use.
+      - name: Add date to dates.json
+        id: add
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = context.payload.issue.body || '';
+            const m = body.match(/###\s*Suggested date\s*\r?\n+\s*(\d{4}-\d{2}-\d{2})\s*(\r?\n|$)/);
+            const fail = (msg) => { core.setOutput('status', 'failed'); core.setOutput('message', msg); };
+
+            if (!m) return fail("I couldn't find a date in `YYYY-MM-DD` format in this issue.");
+            const date = m[1];
+            const d = new Date(`${date}T00:00:00Z`);
+            if (Number.isNaN(d.getTime()) || d.toISOString().slice(0, 10) !== date) return fail(`\`${date}\` isn't a real date.`);
+            if (date < new Date().toISOString().slice(0, 10)) return fail(`\`${date}\` is in the past.`);
+
+            const file = 'datesFolder/dates.json';
+            const dates = JSON.parse(fs.readFileSync(file, 'utf8'));
+            if (dates.some(x => String(x).slice(0, 10) === date)) {
+              core.setOutput('status', 'exists');
+              return;
+            }
+            dates.push(`${date}T09:00:00`);
+            dates.sort().reverse();
+            fs.writeFileSync(file, JSON.stringify(dates, null, 2) + '\n');
+            core.setOutput('status', 'added');
+            core.setOutput('date', date);
+
+      - name: Rebuild feeds and commit
+        if: steps.add.outputs.status == 'added'
+        env:
+          DATE: ${{ steps.add.outputs.date }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          node scripts/build-feeds.mjs
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add datesFolder/dates.json datesFolder/announced.json feed.xml calendar.ics calendar
+          git commit -m "feat: add #UmbracoTees day $DATE (closes #$ISSUE)"
+          git push origin main
+
+      - name: Reply and close
+        uses: actions/github-script@v7
+        env:
+          STATUS: ${{ steps.add.outputs.status }}
+          DATE: ${{ steps.add.outputs.date }}
+          MESSAGE: ${{ steps.add.outputs.message }}
+        with:
+          script: |
+            const { STATUS, DATE, MESSAGE } = process.env;
+            const issue_number = context.issue.number;
+            const base = { ...context.repo, issue_number };
+
+            if (STATUS === 'failed') {
+              await github.rest.issues.createComment({ ...base, body: `Couldn't publish this one automatically. ${MESSAGE} Fix the issue and re-add the \`accepted\` label.` });
+              await github.rest.issues.removeLabel({ ...base, name: 'accepted' });
+              return;
+            }
+            const body = STATUS === 'exists'
+              ? 'That date is already on the site, thanks for the suggestion!'
+              : `Accepted! **${DATE}** is now on https://isitumbracoteesday.today and in the RSS and calendar feeds. Thanks for the suggestion 👕`;
+            await github.rest.issues.createComment({ ...base, body });
+            await github.rest.issues.update({ ...base, state: 'closed', state_reason: 'completed' });

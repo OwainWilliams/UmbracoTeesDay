@@ -115,6 +115,18 @@
       if (timer) timer.innerHTML = '<p class="none">Couldn’t load the date, try again soon.</p>';
     });
 
+  // Suggest-a-date form: only allow future dates and title the issue with the chosen date
+  var suggestForm = document.getElementById('suggest-form');
+  if (suggestForm) {
+    var dateInput = document.getElementById('suggest-date');
+    var tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    dateInput.min = tomorrow.getFullYear() + '-' + String(tomorrow.getMonth() + 1).padStart(2, '0') + '-' + String(tomorrow.getDate()).padStart(2, '0');
+    suggestForm.addEventListener('submit', function () {
+      document.getElementById('suggest-title').value = 'Date suggestion: ' + dateInput.value;
+    });
+  }
+
   // "Copy" buttons next to the feed / calendar URLs
   document.querySelectorAll('[data-copy]').forEach(function (btn) {
     btn.addEventListener('click', function () {

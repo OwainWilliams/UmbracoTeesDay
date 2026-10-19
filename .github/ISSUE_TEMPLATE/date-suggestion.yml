@@ -1,0 +1,23 @@
+name: Suggest an #UmbracoTees day
+description: Suggest a date for the next #UmbracoTees day
+title: "Date suggestion: "
+labels: ["date-suggestion"]
+body:
+  - type: input
+    id: date
+    attributes:
+      label: Suggested date
+      description: Format YYYY-MM-DD, e.g. 2027-02-26
+      placeholder: "2027-02-26"
+    validations:
+      required: true
+  - type: input
+    id: who
+    attributes:
+      label: Your name or handle (optional)
+      placeholder: "@owaincodes"
+  - type: textarea
+    id: why
+    attributes:
+      label: Why are you suggesting this date? (optional)
+      placeholder: "e.g. Umbraco anniversary"

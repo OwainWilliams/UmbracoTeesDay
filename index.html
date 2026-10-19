@@ -108,6 +108,26 @@
         </div>
       </div>
     </section>
+    <section class="section" id="suggest">
+      <div class="wrap">
+        <h2>Suggest a date</h2>
+        <p class="sub">Got a date in mind for the next #UmbracoTees day? Send it over. It opens as a public GitHub issue, so you&rsquo;ll need a free GitHub account.</p>
+        <form class="card suggest" id="suggest-form" action="https://github.com/OwainWilliams/UmbracoTeesDay/issues/new" method="get" target="_blank" rel="noopener">
+          <input type="hidden" name="template" value="date-suggestion.yml">
+          <input type="hidden" name="title" id="suggest-title" value="">
+          <label>Date
+            <input type="date" name="date" id="suggest-date" required>
+          </label>
+          <label>Your name or handle <small>(optional)</small>
+            <input type="text" name="who" placeholder="@owaincodes" autocomplete="off">
+          </label>
+          <label class="wide">Why are you suggesting this date? <small>(optional)</small>
+            <textarea name="why" rows="3" placeholder="e.g. Umbraco anniversary"></textarea>
+          </label>
+          <div class="wide"><button class="btn primary" type="submit">Suggest this date on GitHub</button></div>
+        </form>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
