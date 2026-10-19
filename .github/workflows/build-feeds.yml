@@ -1,0 +1,28 @@
+name: Build feeds
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - datesFolder/dates.json
+      - scripts/build-feeds.mjs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/build-feeds.mjs
+      - name: Commit generated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add feed.xml calendar.ics calendar datesFolder/announced.json
+          git diff --staged --quiet || git commit -m "chore: rebuild RSS and calendar feeds" && git push

@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   const gallery = document.querySelector(".gallery");
-  const folderNameElement = document.querySelector(".folder-name"); // Get the folder name element
+  const jump = document.querySelector(".gallery-nav");
 
-  // Define image URLs for each folder (replace with actual image URLs)
+  // Image URLs for each #UmbracoTees day, newest first. Add a new folder here when one is added.
   const folderImages = {
       "30 August 2024": [
           "umbracoTeesGallery/30Aug2024/image(1).jpg",
@@ -120,27 +120,81 @@ document.addEventListener("DOMContentLoaded", function () {
       // Add more folders if necessary
     };
 
-  // Loop through each folder and its images
- // Loop through each folder and its images
- for (const folder in folderImages) {
-	const images = folderImages[folder];
+  // ---------- Lightbox ----------
+  const lightbox = document.createElement("div");
+  lightbox.className = "lightbox";
+  lightbox.setAttribute("role", "dialog");
+  lightbox.setAttribute("aria-modal", "true");
+  lightbox.setAttribute("aria-label", "Photo viewer");
+  lightbox.innerHTML =
+    '<button class="close" aria-label="Close">&times;</button>' +
+    '<button class="prev" aria-label="Previous photo">&#8249;</button>' +
+    '<img alt="">' +
+    '<button class="next" aria-label="Next photo">&#8250;</button>';
+  document.body.appendChild(lightbox);
+  const lightboxImg = lightbox.querySelector("img");
 
-	// Create and display folder name element
-	const folderNameElement = document.createElement("h2");
-	folderNameElement.textContent = `Folder: ${folder}`;
-	gallery.appendChild(folderNameElement);
+  let current = [];
+  let index = 0;
 
-	// Create a container for the images
-	const imageContainer = document.createElement("div");
-	imageContainer.classList.add("image-container");
-	gallery.appendChild(imageContainer);
+  function show(i) {
+    index = (i + current.length) % current.length;
+    lightboxImg.src = current[index].src;
+    lightboxImg.alt = current[index].alt;
+  }
+  function open(images, i) {
+    current = images;
+    show(i);
+    lightbox.classList.add("open");
+    lightbox.querySelector(".close").focus();
+  }
+  function close() { lightbox.classList.remove("open"); lightboxImg.removeAttribute("src"); }
 
-	// Append images to the image container
-	images.forEach((image) => {
-		const imgElement = document.createElement("img");
-		imgElement.src = image;
-		imageContainer.appendChild(imgElement);
-	});
-}
+  lightbox.addEventListener("click", (e) => {
+    if (e.target.closest(".close") || e.target === lightbox) close();
+    else if (e.target.closest(".prev")) show(index - 1);
+    else if (e.target.closest(".next")) show(index + 1);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("open")) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowLeft") show(index - 1);
+    if (e.key === "ArrowRight") show(index + 1);
+  });
 
+  // ---------- Render each folder ----------
+  for (const folder in folderImages) {
+    const images = folderImages[folder];
+    const id = folder.toLowerCase().replace(/\s+/g, "-");
+
+    const link = document.createElement("a");
+    link.href = "#" + id;
+    link.textContent = folder;
+    jump.appendChild(link);
+
+    const group = document.createElement("section");
+    group.className = "gallery-group";
+    group.id = id;
+    group.innerHTML = `<h2>${folder}<small>${images.length} photos</small></h2>`;
+
+    const grid = document.createElement("div");
+    grid.className = "photos";
+    group.appendChild(grid);
+    gallery.appendChild(group);
+
+    const items = images.map((src, n) => ({ src, alt: `#UmbracoTees day ${folder}, photo ${n + 1}` }));
+    items.forEach((item, n) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.setAttribute("aria-label", `View photo ${n + 1} from ${folder}`);
+      const img = document.createElement("img");
+      img.src = item.src;
+      img.alt = item.alt;
+      img.loading = "lazy";
+      img.decoding = "async";
+      btn.appendChild(img);
+      btn.addEventListener("click", () => open(items, n));
+      grid.appendChild(btn);
+    });
+  }
 });

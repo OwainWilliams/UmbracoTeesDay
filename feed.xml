@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>#UmbracoTees Day</title>
+    <link>https://isitumbracoteesday.today/</link>
+    <description>Announcements for the next #UmbracoTees day, when the Umbraco community wears its merch.</description>
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 19 Oct 2026 10:11:53 GMT</lastBuildDate>
+    <atom:link href="https://isitumbracoteesday.today/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>#UmbracoTees Day: Friday 23 October 2026</title>
+      <link>https://isitumbracoteesday.today/</link>
+      <guid isPermaLink="false">umbracotees-2026-10-23</guid>
+      <pubDate>Mon, 19 Oct 2026 10:11:53 GMT</pubDate>
+      <description>The next #UmbracoTees Day is Friday 23 October 2026. Pull on your Umbraco merch and share it with #umbracoTees. Add it to your calendar: https://isitumbracoteesday.today/calendar/2026-10-23.ics</description>
+    </item>
+    <item>
+      <title>#UmbracoTees Day: Friday 29 May 2026</title>
+      <link>https://isitumbracoteesday.today/</link>
+      <guid isPermaLink="false">umbracotees-2026-05-29</guid>
+      <pubDate>Fri, 29 May 2026 09:00:00 GMT</pubDate>
+      <description>#UmbracoTees Day was held on Friday 29 May 2026.</description>
+    </item>
+    <item>
+      <title>#UmbracoTees Day: Thursday 27 November 2025</title>
+      <link>https://isitumbracoteesday.today/</link>
+      <guid isPermaLink="false">umbracotees-2025-11-27</guid>
+      <pubDate>Thu, 27 Nov 2025 09:00:00 GMT</pubDate>
+      <description>#UmbracoTees Day was held on Thursday 27 November 2025.</description>
+    </item>
+    <item>
+      <title>#UmbracoTees Day: Friday 31 October 2025</title>
+      <link>https://isitumbracoteesday.today/</link>
+      <guid isPermaLink="false">umbracotees-2025-10-31</guid>
+      <pubDate>Fri, 31 Oct 2025 09:00:00 GMT</pubDate>
+      <description>#UmbracoTees Day was held on Friday 31 October 2025.</description>
+    </item>
+    <item>
+      <title>#UmbracoTees Day: Friday 18 July 2025</title>
+      <link>https://isitumbracoteesday.today/</link>
+      <guid isPermaLink="false">umbracotees-2025-07-18</guid>
+      <pubDate>Fri, 18 Jul 2025 09:00:00 GMT</pubDate>
+      <description>#UmbracoTees Day was held on Friday 18 July 2025.</description>
+    </item>
+    <item>
+      <title>#UmbracoTees Day: Monday 17 February 2025</title>
+      <link>https://isitumbracoteesday.today/</link>
+      <guid isPermaLink="false">umbracotees-2025-02-17</guid>
+      <pubDate>Mon, 17 Feb 2025 09:00:00 GMT</pubDate>
+      <description>#UmbracoTees Day was held on Monday 17 February 2025.</description>
+    </item>
+    <item>
+      <title>#UmbracoTees Day: Sunday 16 February 2025</title>
+      <link>https://isitumbracoteesday.today/</link>
+      <guid isPermaLink="false">umbracotees-2025-02-16</guid>
+      <pubDate>Sun, 16 Feb 2025 09:00:00 GMT</pubDate>
+      <description>#UmbracoTees Day was held on Sunday 16 February 2025.</description>
+    </item>
+    <item>
+      <title>#UmbracoTees Day: Friday 30 August 2024</title>
+      <link>https://isitumbracoteesday.today/</link>
+      <guid isPermaLink="false">umbracotees-2024-08-30</guid>
+      <pubDate>Fri, 30 Aug 2024 09:00:00 GMT</pubDate>
+      <description>#UmbracoTees Day was held on Friday 30 August 2024.</description>
+    </item>
+    <item>
+      <title>#UmbracoTees Day: Thursday 30 May 2024</title>
+      <link>https://isitumbracoteesday.today/</link>
+      <guid isPermaLink="false">umbracotees-2024-05-30</guid>
+      <pubDate>Thu, 30 May 2024 09:00:00 GMT</pubDate>
+      <description>#UmbracoTees Day was held on Thursday 30 May 2024.</description>
+    </item>
+    <item>
+      <title>#UmbracoTees Day: Friday 23 February 2024</title>
+      <link>https://isitumbracoteesday.today/</link>
+      <guid isPermaLink="false">umbracotees-2024-02-23</guid>
+      <pubDate>Fri, 23 Feb 2024 09:00:00 GMT</pubDate>
+      <description>#UmbracoTees Day was held on Friday 23 February 2024.</description>
+    </item>
+  </channel>
+</rss>

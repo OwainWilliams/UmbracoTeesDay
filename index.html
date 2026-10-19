@@ -1,125 +1,118 @@
 <!DOCTYPE html>
 
-<!-- 
+<!--
 
-         __  __      __  ________ ___ __     __        
-|  ||\/||__)|__) /\ /  `/  \||__ |__ /__`   |  \ /\\ / 
-\__/|  ||__)|  \/~~\\__,\__/||___|___.__/   |__//~~\|  
-                                                       
+         __  __      __  ________ ___ __     __
+|  ||\/||__)|__) /\ /  `/  \||__ |__ /__`   |  \ /\\ /
+\__/|  ||__)|  \/~~\\__,\__/||___|___.__/   |__//~~\|
+
 -->
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Find out when the next #umbracoTees day is">
-    <meta name="keywords" content="umbraco, umbracoteesday, umbracotees">
-    <meta name="author" content="Owain Williams">
-  
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="#UmbracoTees Countdown Timer">
-    <meta property="og:description" content="Find out when the next #umbracoTees day is">
-    <meta property="og:url" content="https://isitumbracoteesday.today">
-   <!-- <meta property="og:image" content="https://isitumbracoteesday.today/images/og-image.jpg">-->
-    <meta property="og:type" content="website">
-  
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@owaincodes">
-    <meta name="twitter:title" content="#UmbracoTees Countdown Timer">
-    <meta name="twitter:description" content="Find out when the next #umbracoTees day is">
-    <!-- <meta name="twitter:image" content="https://isitumbracoteesday.today/images/twitter-image.jpg">-->
-  
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Is it #UmbracoTees day today?</title>
+  <meta name="description" content="Find out when the next #umbracoTees day is, add it to your calendar or subscribe to be told when the next one is announced.">
+  <meta name="keywords" content="umbraco, umbracoteesday, umbracotees">
+  <meta name="author" content="Owain Williams">
+  <meta name="theme-color" content="#0b1626">
 
+  <meta property="og:title" content="Is it #UmbracoTees day today?">
+  <meta property="og:description" content="Find out when the next #umbracoTees day is">
+  <meta property="og:url" content="https://isitumbracoteesday.today">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@owaincodes">
+  <meta name="twitter:title" content="Is it #UmbracoTees day today?">
+  <meta name="twitter:description" content="Find out when the next #umbracoTees day is">
+
+  <link rel="alternate" type="application/rss+xml" title="#UmbracoTees Day announcements" href="feed.xml">
+  <link rel="alternate" type="text/calendar" title="#UmbracoTees Day calendar" href="calendar.ics">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-<link rel="manifest" href="assets/site.webmanifest">
-  <style>
-    body {
-      text-align: center;
-      padding: 70px 50px;
-      background: #0D1A29;
-      font-family: "Helvetica Neue", "Open Sans", helvetica, arial, sans-serif;  
-      color: #FFFFFF; /* Set text color to white */
-    }
-
-    #timer {  
-      font-size: 3em;
-      font-weight: 100;
-      color: white;
-      text-shadow: 0 0 20px #48C8FF;
-
-      div {
-        display: inline-block;
-        min-width: 90px;
-
-        span {
-          color: #B1CDF1;
-          display: block;
-          font-size: .35em;
-          font-weight: 400;
-        }
-
-      }
-    }
-    h1{
-            font-size: 2em;
-      font-weight: bold;
-      margin-top: 30px; /* Add margin to the top of the h1 */
-        }
-  </style>
-  <title>#UmbracoTees Countdown Timer</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="manifest" href="assets/site.webmanifest">
+  <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="/">#UmbracoTees Day</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="gallery.html">Gallery</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://umbracocommunity.store">Merch</a>
-        </li>
-      </ul>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/"><img src="assets/favicon-32x32.png" alt="" width="28" height="28"><span>#</span>UmbracoTees Day</a>
+      <nav class="nav" aria-label="Main">
+        <a href="/" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="https://umbracocommunity.store">Merch</a>
+      </nav>
     </div>
-  </nav>
-<div class="container">
-    <h1>Is it #UmbracoTees day today?</h1>
-<div id="timer"></div>
-</div>
+  </header>
 
-<div class="container">
-         A massive #h5yr to <a href="https://github.com/loranallensmith">Loran Allen Smith</a> for creating an Umbraco 14+ package which notifies you when the next #UmbracoTees day will be from the backoffice of Umbraco!
-         <p>
-         <a href="https://marketplace.umbraco.com/package/our.umbraco.umbracoteesdaycountdown">Get the package</a> / <a href="https://github.com/loranallensmith/UmbracoTeesDayCounter">Github repo</a>
-         </p>
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <span class="eyebrow">#UmbracoTees</span>
+        <h1>Is it #UmbracoTees day today?</h1>
+        <p class="lead">The Umbraco community pulls on its merch and shares the photos. Here&rsquo;s when the next one is.</p>
 
-<!-- Footer -->
-<div class="container-fluid bg-dark text-light fixed-bottom">
-  <footer class="py-3">
-      <div class="container">
-          <p class="mb-0 text-center">Built by <a href="https://owain.codes">Owain.Codes</a> - An <a href="https://github.com/OwainWilliams/UmbracoTeesDay">Open Source Project</a></p>
+        <div id="timer" aria-live="off"><p class="none">Loading&hellip;</p></div>
+        <div class="actions" id="next-actions"></div>
       </div>
+    </section>
+
+    <section class="section" id="upcoming-section" hidden>
+      <div class="wrap">
+        <h2>All upcoming dates</h2>
+        <p class="sub">More than one on the way? Add whichever you like.</p>
+        <ul class="dates" id="upcoming"></ul>
+      </div>
+    </section>
+
+    <section class="section" id="subscribe">
+      <div class="wrap">
+        <h2>Never miss one</h2>
+        <p class="sub">Subscribe once and every new #UmbracoTees day shows up on its own.</p>
+        <div class="grid">
+          <div class="card">
+            <h3>Subscribe in your calendar</h3>
+            <p>Adds every #UmbracoTees day to Google Calendar, Apple Calendar or Outlook and keeps it up to date.</p>
+            <p>
+              <a class="btn primary" href="https://calendar.google.com/calendar/r?cid=webcal://isitumbracoteesday.today/calendar.ics" target="_blank" rel="noopener">Google Calendar</a>
+              <a class="btn" href="webcal://isitumbracoteesday.today/calendar.ics">Apple / Outlook</a>
+            </p>
+            <div class="copy-row">
+              <input id="ics-url" type="text" readonly value="https://isitumbracoteesday.today/calendar.ics" aria-label="Calendar feed URL">
+              <button class="btn" type="button" data-copy="ics-url">Copy</button>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Subscribe with RSS</h3>
+            <p>Get a new item in your feed reader whenever the next #UmbracoTees day is announced.</p>
+            <p><a class="btn primary" href="feed.xml">Open RSS feed</a></p>
+            <div class="copy-row">
+              <input id="rss-url" type="text" readonly value="https://isitumbracoteesday.today/feed.xml" aria-label="RSS feed URL">
+              <button class="btn" type="button" data-copy="rss-url">Copy</button>
+            </div>
+          </div>
+          <div class="card">
+            <h3>In your Umbraco backoffice</h3>
+            <p>A huge #h5yr to <a href="https://github.com/loranallensmith">Loran Allen Smith</a> for the Umbraco 14+ package that tells you when the next day is, right in the backoffice.</p>
+            <p><a href="https://marketplace.umbraco.com/package/our.umbraco.umbracoteesdaycountdown">Get the package</a> &middot; <a href="https://github.com/loranallensmith/UmbracoTeesDayCounter">GitHub repo</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>Built by <a href="https://owain.codes">Owain.Codes</a></span>
+      <span><a href="feed.xml">RSS</a> &middot; <a href="calendar.ics">Calendar</a> &middot; <a href="https://github.com/OwainWilliams/UmbracoTeesDay">Open source project</a></span>
+    </div>
   </footer>
-</div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="js/scripts.js"></script>
-
-
+  <script src="js/scripts.js"></script>
 </body>
 </html>
