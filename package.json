@@ -1,0 +1,12 @@
+{
+  "name": "umbracotees-day",
+  "private": true,
+  "type": "module",
+  "description": "Build scripts for isitumbracoteesday.today",
+  "scripts": {
+    "build": "node scripts/build-feeds.mjs && node scripts/build-gallery.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.5"
+  }
+}

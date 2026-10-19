@@ -9,6 +9,15 @@ A simple site that shows a countdown to when the next #umbracoTees day will be h
 
 To build locally instead, run `node scripts/build-feeds.mjs` and commit the output.
 
+## Adding gallery photos
+
+1. Put the original photos in `umbracoTeesGallery/YYYY-MM-DD/`, named after the #UmbracoTees day (e.g. `umbracoTeesGallery/2026-10-23/`).
+2. Push to `main`. The **Build gallery** GitHub Action resizes them, strips EXIF/GPS data and updates the gallery.
+
+Supported: JPG, PNG, WebP, GIF, AVIF (convert HEIC to JPG first). Folders not named `YYYY-MM-DD` are ignored.
+To build locally, run `npm install` then `node scripts/build-gallery.mjs`.
+Generated files: `gallery/` and `datesFolder/gallery.json`. Don't edit them by hand.
+
 ## Subscribing
 
 | What | URL |

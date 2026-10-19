@@ -1,0 +1,41 @@
+name: Build gallery
+
+# Push photos to umbracoTeesGallery/YYYY-MM-DD/ and this resizes them and updates the gallery.
+on:
+  push:
+    branches: [main]
+    paths:
+      - umbracoTeesGallery/**
+      - scripts/build-gallery.mjs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-gallery
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node scripts/build-gallery.mjs
+      - name: Commit generated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add gallery datesFolder/gallery.json
+          if git diff --staged --quiet; then
+            echo "Nothing to commit"
+            exit 0
+          fi
+          git commit -m "chore: rebuild gallery"
+          git pull --rebase origin main
+          git push origin main
