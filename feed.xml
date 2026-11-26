@@ -5,14 +5,21 @@
     <link>https://isitumbracoteesday.today/</link>
     <description>Announcements for the next #UmbracoTees day, when the Umbraco community wears its merch.</description>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 19 Oct 2026 10:11:53 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 15:07:50 GMT</lastBuildDate>
     <atom:link href="https://isitumbracoteesday.today/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>#UmbracoTees Day: Friday 11 December 2026</title>
+      <link>https://isitumbracoteesday.today/</link>
+      <guid isPermaLink="false">umbracotees-2026-12-11</guid>
+      <pubDate>Thu, 26 Nov 2026 15:07:50 GMT</pubDate>
+      <description>The next #UmbracoTees Day is Friday 11 December 2026. Pull on your Umbraco merch and share it with #umbracoTees. Add it to your calendar: https://isitumbracoteesday.today/calendar/2026-12-11.ics</description>
+    </item>
     <item>
       <title>#UmbracoTees Day: Friday 23 October 2026</title>
       <link>https://isitumbracoteesday.today/</link>
       <guid isPermaLink="false">umbracotees-2026-10-23</guid>
       <pubDate>Mon, 19 Oct 2026 10:11:53 GMT</pubDate>
-      <description>The next #UmbracoTees Day is Friday 23 October 2026. Pull on your Umbraco merch and share it with #umbracoTees. Add it to your calendar: https://isitumbracoteesday.today/calendar/2026-10-23.ics</description>
+      <description>#UmbracoTees Day was held on Friday 23 October 2026.</description>
     </item>
     <item>
       <title>#UmbracoTees Day: Friday 29 May 2026</title>

@@ -166,4 +166,20 @@ DESCRIPTION:It's #UmbracoTees Day today!
 TRIGGER:PT9H
 END:VALARM
 END:VEVENT
+BEGIN:VEVENT
+UID:umbracotees-2026-12-11@isitumbracoteesday.today
+DTSTAMP:20261126T150750Z
+DTSTART;VALUE=DATE:20261211
+DTEND;VALUE=DATE:20261212
+SUMMARY:#UmbracoTees Day 👕
+DESCRIPTION:Wear your Umbraco merch and share a photo with #umbracoTees.\nh
+ ttps://isitumbracoteesday.today
+URL:https://isitumbracoteesday.today/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:It's #UmbracoTees Day today!
+TRIGGER:PT9H
+END:VALARM
+END:VEVENT
 END:VCALENDAR
